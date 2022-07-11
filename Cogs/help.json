@@ -1,0 +1,29 @@
+{
+  "Fun Commands" : {
+    "die" : "Sends a GIF of a 'dead' person",
+    "ping" : "The bot sends 'Pong!",
+    "greet" : "Greet a user through the bot anonymously",
+    "bean" : "Beans a user (only for staff)",
+    "support" : "Sends an invite link to the support server.",
+    "recognize" : "Recognizes the actual owner of the bot."
+    },
+
+  "Channel Commands" : {
+    "channelname" : "Changes the channel's name in which the message is sent",
+    "channeldescription" : "Changes the description of the channel in which the message is sent",
+    "slowmode" : "Changes the slowmode",
+    "clear" : "Clears messages",
+    "lock" : "Locks the channel",
+    "unlock" : "Unlocks the channel"
+    },
+
+  "Tools" : {
+    "poll" : "Creates a poll",
+    "role" : "Adds a role to the user",
+    "removerole" : "Removes a role from the user"
+    },
+
+  "Bot-Related Commands" : {
+    "setactivity" : "Changes the activity of the bot. Accessible by only the owner of the bot and SenpaiSpider."
+  }
+}
