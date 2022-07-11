@@ -1,1 +1,1 @@
-worker: & "c:/Users/saich/OneDrive/Documents/My Personals/Discord Bots/SenBot/venv/Scripts/python.exe" "c:/Users/saich/OneDrive/Documents/My Personals/Discord Bots/SenBot/main.py"
+worker: python main.py
