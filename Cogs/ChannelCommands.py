@@ -8,7 +8,7 @@ class ChannelEdit(commands.Cog):
         self.bot = bot
 
     @commands.command(name='channelname', aliases=['cn', 'name'])
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('SS', 'COO', 'COS')
     async def channelname(self, ctx, *, name: str):
         await ctx.channel.edit(name=name)
         await ctx.reply(f'Channel name changed to {name}!')
@@ -24,7 +24,7 @@ class ChannelEdit(commands.Cog):
             return
 
     @commands.command(name='channeldescription', aliases=['cd', 'channeldes', 'des'])
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('SS', 'COO', 'COS')
     async def channeldescription(self, ctx, *, description: str):
         await ctx.channel.edit(topic=description)
         await ctx.reply(f'Channel description changed to "{description}"!')
