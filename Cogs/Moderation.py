@@ -14,7 +14,7 @@ class Moderation(commands.Cog):
                 self.report = {'members': []}
     
     @commands.command(name='kick')
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Admin', 'Team Leader', 'Deputy Team Leader', 'Manager')
     async def kick(self, ctx, member: nextcord.Member, reason: str):
         await member.kick(reason=reason)
         em = nextcord.Embed(title='User kicked!', description=f'{member} has been kicked!', color=0xFF0000)
@@ -31,7 +31,7 @@ class Moderation(commands.Cog):
             return
 
     @commands.command(name='ban')
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Admin', 'Manager')
     async def ban(self, ctx, member: nextcord.Member, *, reason='No reason provided'):
         await member.ban(reason=reason)
         em = nextcord.Embed(title='User banned!', description=f'{member} has been banned!\n{reason}', color=0xFF0000)
@@ -99,7 +99,7 @@ class Moderation(commands.Cog):
                 await ctx.send(f"**{member.name} has never been reported**")
 
     @commands.command(name='clearwarns', aliases=['warnsclear', 'cw'])
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Team Leader', 'Manager')
     async def clearwarns(self, ctx, member: nextcord.Member):
         for current_user in self.report['members']:
             if current_user['name'] == member.name:
@@ -119,7 +119,7 @@ class Moderation(commands.Cog):
             return
 
     @commands.command(name='clearallwarns', aliases=['cwall'])
-    @commands.has_any_role('Manager', 'SS')
+    @commands.has_any_role('COO', 'COS', 'SS')
     async def clearallwarns(self, ctx):
         self.report.clear()
         await ctx.send('All warns have been cleared!')
