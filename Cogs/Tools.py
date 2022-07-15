@@ -10,7 +10,7 @@ class Tools(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name='dm', description='DMs a user', guild_ids=[927811764895227945, 994484729917210646])
+    @nextcord.slash_command(name='dm', description='DMs a user', guild_ids=[927811764895227945, 994484729917210646])
     async def dm(self, interaction: nextcord.Interaction, member: nextcord.Member, message: str):
         await member.send(f'**Message from {interaction.user.mention}:**\n{message}')
         await interaction.response.send_message(f'Sent message to {member.mention}', ephemeral = True)
