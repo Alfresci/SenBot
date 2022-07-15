@@ -16,7 +16,7 @@ class Tools(commands.Cog):
         await interaction.response.send_message(f'Sent message to {member.mention}', ephemeral = True)
     
     @commands.command(name='managenickname', aliases = ['mn'])
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Admin', 'Manager')
     async def managenickname(self, ctx, member: nextcord.Member, *, nick: str):
         await member.edit(nick=nick)
         await ctx.send(f"{member.mention}'s nickname has been changed to {nick}!")
@@ -34,7 +34,7 @@ class Tools(commands.Cog):
         await msg.add_reaction(e2)
 
     @commands.command(name='addcrew', aliases=['ac'])
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Manager', 'Team Leader')
     async def addcrew(self, ctx, member: nextcord.Member):
         role = nextcord.utils.get(member.guild.roles, name='Helper')
         await member.add_roles(role)
@@ -51,7 +51,7 @@ class Tools(commands.Cog):
             await ctx.reply(embed=embed)
 
     @commands.command(name='remcrew', aliases=['rc'])
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role'Manager', 'Team Leader')
     async def remcrew(self, ctx, member: nextcord.Member):
         role = nextcord.utils.get(member.guild.roles, name='Helper')
         await member.remove_roles(role)
@@ -70,7 +70,7 @@ class Tools(commands.Cog):
             await ctx.reply(embed=embed)
 
     @commands.command(name='lock')
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Sr. Moderator', 'Admin', 'Manager')
     async def lock(self, ctx, channel: nextcord.TextChannel = None):
         channel = ctx.channel or channel
         overwrite = channel.overwrites_for(ctx.guild.default_role)
@@ -87,7 +87,7 @@ class Tools(commands.Cog):
             return
 
     @commands.command(name='unlock')
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Sr. Moderator', 'Admin', 'Manager')
     async def unlock(self, ctx, channel: nextcord.TextChannel = None):
         channel = channel or ctx.channel
         overwrite = channel.overwrites_for(ctx.guild.default_role)
@@ -130,7 +130,7 @@ class Tools(commands.Cog):
         await ctx.send(f'The members for this role are: \n{role_members}')
     
     @commands.command(name='role')
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Manager', 'Team Leader')
     async def role(self, ctx, member: nextcord.Member, role_name: str):
         role = utils.get(member.guild.roles, name=role_name)
         author = ctx.author
@@ -150,7 +150,7 @@ class Tools(commands.Cog):
             await ctx.send("Hm..... The command doesn't seem to work <:thinking:>")
 
     @commands.command(name='removerole', aliases=['remrole'])
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Admin', 'Manager')
     async def removerole(self, ctx, member: nextcord.Member, role_name: str):
         role = utils.get(member.guild.roles, name=role_name)
         author = ctx.author
@@ -171,7 +171,7 @@ class Tools(commands.Cog):
 
 
     @commands.command(name='nuke')
-    @commands.has_any_role('Head Admin', 'Manager')
+    @commands.has_any_role('SS', 'COO', 'COS')
     async def nuke(self, ctx):
         channel = await ctx.channel.clone(name=f'{ctx.channel.name}')
         await ctx.channel.delete()
@@ -238,7 +238,7 @@ class Tools(commands.Cog):
         await channel.delete()
 
     @commands.command(name='task')
-    @commands.has_any_role('Admin', 'Head Admin', 'Manager')
+    @commands.has_any_role('Manager', 'Team Leader', 'Deputy Team Leader')
     async def tasks(self, ctx, member: nextcord.Member, *, task: str):
         await ctx.send(f'{member.mention} has been assigned a task: {task}!')
 
