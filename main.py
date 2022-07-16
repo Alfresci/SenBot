@@ -4,6 +4,7 @@ import os
 
 my_intents = Intents.default()
 my_intents.message_content = True
+my_intents.reactions = True
 
 bot = commands.Bot(command_prefix='-', intents = my_intents, help_command=None)
 
