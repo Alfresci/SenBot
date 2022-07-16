@@ -51,7 +51,7 @@ class Tools(commands.Cog):
             await ctx.reply(embed=embed)
 
     @commands.command(name='remcrew', aliases=['rc'])
-    @commands.has_any_role'Manager', 'Team Leader')
+    @commands.has_any_role('Manager', 'Team Leader')
     async def remcrew(self, ctx, member: nextcord.Member):
         role = nextcord.utils.get(member.guild.roles, name='Helper')
         await member.remove_roles(role)
