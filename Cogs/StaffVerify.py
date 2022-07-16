@@ -20,7 +20,7 @@ class StaffVerify(commands.Cog):
         author = ctx.author
         role = utils.get(author.guild.roles, name='Crew')
 
-        if ctx.channel.id != '995300419817459762':
+        if ctx.channel != channel:
             await ctx.message.delete()
         else:
             class Options(ui.View):
