@@ -16,7 +16,11 @@ class Tools(commands.Cog):
         await interaction.response.send_message(f'Sent message to {member.mention}', ephemeral = True)
     
     @commands.command(name='managenickname', aliases = ['mn'])
+<<<<<<< HEAD
     @commands.has_any_role('Admin', 'Operations Manager', 'Team Leader', 'Deputy Team Leader', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Admin', 'Manager')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def managenickname(self, ctx, member: nextcord.Member, *, nick: str):
         await member.edit(nick=nick)
         await ctx.send(f"{member.mention}'s nickname has been changed to {nick}!")
@@ -34,7 +38,11 @@ class Tools(commands.Cog):
         await msg.add_reaction(e2)
 
     @commands.command(name='addcrew', aliases=['ac'])
+<<<<<<< HEAD
     @commands.has_any_role('Operations Manager', 'Team Leader', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Manager', 'Team Leader')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def addcrew(self, ctx, member: nextcord.Member):
         role = nextcord.utils.get(member.guild.roles, name='Server Staff')
         await member.add_roles(role)
@@ -51,7 +59,11 @@ class Tools(commands.Cog):
             await ctx.reply(embed=embed)
 
     @commands.command(name='remcrew', aliases=['rc'])
+<<<<<<< HEAD
     @commands.has_any_role('Operations Manager', 'Team Leader', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Manager', 'Team Leader')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def remcrew(self, ctx, member: nextcord.Member):
         role = nextcord.utils.get(member.guild.roles, name='Helper')
         await member.remove_roles(role)
@@ -70,7 +82,11 @@ class Tools(commands.Cog):
             await ctx.reply(embed=embed)
 
     @commands.command(name='lock')
+<<<<<<< HEAD
     @commands.has_any_role('Sr. Moderator', 'Admin', 'Operations Manager', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Sr. Moderator', 'Admin', 'Manager')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def lock(self, ctx, channel: nextcord.TextChannel = None):
         channel = ctx.channel or channel
         overwrite = channel.overwrites_for(ctx.guild.default_role)
@@ -87,7 +103,11 @@ class Tools(commands.Cog):
             return
 
     @commands.command(name='unlock')
+<<<<<<< HEAD
     @commands.has_any_role('Sr. Moderator', 'Admin', 'Operations Manager', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Sr. Moderator', 'Admin', 'Manager')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def unlock(self, ctx, channel: nextcord.TextChannel = None):
         channel = channel or ctx.channel
         overwrite = channel.overwrites_for(ctx.guild.default_role)
@@ -130,7 +150,11 @@ class Tools(commands.Cog):
         await ctx.send(f'The members for this role are: \n{role_members}')
     
     @commands.command(name='role')
+<<<<<<< HEAD
     @commands.has_any_role('Operations Manager', 'Team Leader', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Manager', 'Team Leader')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def role(self, ctx, member: nextcord.Member, role_name: str):
         role = utils.get(member.guild.roles, name=role_name)
         author = ctx.author
@@ -150,7 +174,11 @@ class Tools(commands.Cog):
             await ctx.send("Hm..... The command doesn't seem to work <:thinking:>")
 
     @commands.command(name='removerole', aliases=['remrole'])
+<<<<<<< HEAD
     @commands.has_any_role('Admin', 'Operations Manager', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Admin', 'Manager')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def removerole(self, ctx, member: nextcord.Member, role_name: str):
         role = utils.get(member.guild.roles, name=role_name)
         author = ctx.author
@@ -247,7 +275,11 @@ class Tools(commands.Cog):
             await ctx.send('This is not a support ticket!')
 
     @commands.command(name='task')
+<<<<<<< HEAD
     @commands.has_any_role('Operations Manager', 'Team Leader', 'Deputy Team Leader', 'COO', 'COS', 'COM', 'SS')
+=======
+    @commands.has_any_role('Manager', 'Team Leader', 'Deputy Team Leader')
+>>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def tasks(self, ctx, member: nextcord.Member, *, task: str):
         await ctx.send(f'{member.mention} has been assigned a task: {task}!')
 
