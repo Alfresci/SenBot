@@ -16,22 +16,18 @@ class StaffVerify(commands.Cog):
     @commands.command(name='staffverify')
     async def staffverify(self, ctx):
         channel = await ctx.guild.fetch_channel(995599978602967100)
-<<<<<<< HEAD
-        channel1 = await ctx.guild.fetch_channel(995300419817459762)
-=======
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
         await ctx.message.delete()
         author = ctx.author
         role = utils.get(author.guild.roles, name='Crew')
 
-<<<<<<< HEAD
-        if ctx.channel != channel1:
+
+        if ctx.channel != channel:
             print('sus')
             return
-=======
+
         if ctx.channel != channel:
             await ctx.message.delete()
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
+
         else:
             class Options(ui.View):
                 @ui.button(label='✔️ Accept', style=nextcord.ButtonStyle.green)
@@ -61,11 +57,7 @@ class StaffVerify(commands.Cog):
     @commands.command(name='invite')
     @commands.has_any_role('SS', 'COO', 'COM', 'COS', 'Manager', 'Operations Manager')
     async def invite(self, ctx, member: nextcord.Member):
-<<<<<<< HEAD
         guild = nextcord.Guild(994484729917210646)
-=======
-        guild = ctx.message.guild
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
         verification_channel = await guild.fetch_channel(995300419817459762)
         invite = await verification_channel.create_invite(max_uses=1, max_age=604800)
         await member.send(f'{invite}\nHere is the invite link to Senpai Station Crew Hub.\nDisclaimer - This invite is one-use only and lasts only for 7 days. Please make sure to join the server before 7 days. Also, DO NOT invite anyone to this server. Inviting people into the staff server will result in you getting kicked out of the server.')

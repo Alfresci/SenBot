@@ -122,8 +122,5 @@ async def on_ready():
     await bot.sync_application_commands()
     print(f'Logged in as {bot.user.name}.')
 
-<<<<<<< HEAD
-#bot.run('OTk1NTM0NDg4NjQ4MDM2MzUz.G746bZ.zflE9QJyNbhKLTdERTv5vWvrB2ymNGoNj9X68E')
-=======
+
 bot.run(os.environ['token'])
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
