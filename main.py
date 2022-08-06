@@ -3,6 +3,7 @@ import nextcord
 from nextcord.ext import commands
 from nextcord import Intents
 import nextcord.ui as ui
+import os
 
 my_intents = Intents.default()
 my_intents.message_content = True

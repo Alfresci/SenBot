@@ -14,11 +14,7 @@ class Moderation(commands.Cog):
                 self.report = {'members': []}
     
     @commands.command(name='kick')
-<<<<<<< HEAD
-    @commands.has_any_role('Admin','Operations Manager', 'COO', 'COS', 'COM', 'SS')
-=======
     @commands.has_any_role('Admin', 'Team Leader', 'Deputy Team Leader', 'Manager')
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def kick(self, ctx, member: nextcord.Member, reason: str):
         await member.kick(reason=reason)
         em = nextcord.Embed(title='User kicked!', description=f'{member} has been kicked!', color=0xFF0000)
@@ -35,11 +31,7 @@ class Moderation(commands.Cog):
             return
 
     @commands.command(name='ban')
-<<<<<<< HEAD
     @commands.has_any_role('Admin', 'Operations Manager')
-=======
-    @commands.has_any_role('Admin', 'Manager')
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def ban(self, ctx, member: nextcord.Member, *, reason='No reason provided'):
         await member.ban(reason=reason)
         em = nextcord.Embed(title='User banned!', description=f'{member} has been banned!\n{reason}', color=0xFF0000)
@@ -107,11 +99,7 @@ class Moderation(commands.Cog):
                 await ctx.send(f"**{member.name} has never been reported**")
 
     @commands.command(name='clearwarns', aliases=['warnsclear', 'cw'])
-<<<<<<< HEAD
     @commands.has_any_role('Admin', 'Operations Manager')
-=======
-    @commands.has_any_role('Team Leader', 'Manager')
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def clearwarns(self, ctx, member: nextcord.Member):
         for current_user in self.report['members']:
             if current_user['name'] == member.name:
@@ -131,11 +119,7 @@ class Moderation(commands.Cog):
             return
 
     @commands.command(name='clearallwarns', aliases=['cwall'])
-<<<<<<< HEAD
     @commands.has_any_role('COO', 'COS', 'COM', 'SS')
-=======
-    @commands.has_any_role('COO', 'COS', 'SS')
->>>>>>> ee3dfc6382ff1dc9b3f4cfc72f2fe2b15094bc69
     async def clearallwarns(self, ctx):
         self.report.clear()
         await ctx.send('All warns have been cleared!')
