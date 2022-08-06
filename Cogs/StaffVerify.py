@@ -19,17 +19,7 @@ class StaffVerify(commands.Cog):
         await ctx.message.delete()
         author = ctx.author
         role = utils.get(author.guild.roles, name='Crew')
-
-
-        if ctx.channel != channel:
-            print('sus')
-            return
-
-        if ctx.channel != channel:
-            await ctx.message.delete()
-
-        else:
-            class Options(ui.View):
+        class Options(ui.View):
                 @ui.button(label='✔️ Accept', style=nextcord.ButtonStyle.green)
                 async def accept(self, button: ui.Button, interaction: nextcord.Interaction):
                     await author.add_roles(role)
@@ -50,9 +40,9 @@ class StaffVerify(commands.Cog):
                     await interaction.message.edit(view=self)
                     self.stop()
 
-            view = Options()
+        view = Options()
             
-            await channel.send(f'`🧐` **VERIFICATION REQUEST RECEIVED!**\n{ctx.author.mention} `has requested authorization!`', view=view)
+        await channel.send(f'`🧐` **VERIFICATION REQUEST RECEIVED!**\n{ctx.author.mention} `has requested authorization!`', view=view)
 
     @commands.command(name='invite')
     @commands.has_any_role('SS', 'COO', 'COM', 'COS', 'Manager', 'Operations Manager')
