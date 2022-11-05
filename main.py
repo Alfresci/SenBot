@@ -1,5 +1,4 @@
 from urllib import response
-import nextcord
 from nextcord.ext import commands
 from nextcord import Intents
 import nextcord.ui as ui
@@ -19,14 +18,11 @@ bot.load_extension('Cogs.Greetings')
 bot.load_extension('Cogs.Recognize')
 bot.load_extension('Cogs.HelpCommand')
 bot.load_extension('Cogs.Buttons')
-bot.load_extension('Cogs.StaffVerify')
-bot.load_extension('Cogs.Error')
 
 @bot.event
 async def on_ready():
     bot.add_all_application_commands()
     await bot.sync_application_commands()
     print(f'Logged in as {bot.user.name}.')
-
 
 bot.run(os.environ['token'])
